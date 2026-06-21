@@ -700,22 +700,60 @@
         .skill-group:nth-child(3) { animation-delay: 0.3s; }
 
         .skill-group h3 {
-            font-size: 1.5rem;
-            margin-bottom: 2rem;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
             color: #D4AF37;
         }
 
-        .skill-item {
-            margin-bottom: 1rem;
-        }
-
-        .skill-name {
+        .skill-tag {
+            display: inline-block;
+            padding: 0.6rem 1rem;
+            background: white;
+            border: 1px solid #E0E0E0;
+            border-radius: 0.5rem;
+            font-size: 0.9rem;
             color: #1a1a1a;
-            font-size: 0.95rem;
-            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
         }
 
-        /* Contact */
+        .skill-tag::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            height: 2px;
+            width: 0;
+            background: #D4AF37;
+            transition: width 0.4s ease;
+        }
+
+        .skill-tag:hover {
+            border-color: #D4AF37;
+            background: #FFF9E6;
+        }
+
+        .skill-tag:hover::after {
+            width: 100%;
+        }
+
+        /* Education */
+        #education {
+            padding: 6rem 2rem;
+            background: #FAFAFA;
+        }
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
         #contact {
             padding: 6rem 2rem;
             background: white;
@@ -961,12 +999,12 @@
     <!-- Navigation -->
     <nav>
         <div class="container">
-            <a href="#" class="logo">Calida</a>
             <ul class="nav-links">
                 <li><a href="#expertise">Work</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#experience">Experience</a></li>
                 <li><a href="#projects">Projects</a></li>
+                <li><a href="#education">Education</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
             <a href="#contact" class="cta-button">Get in Touch</a>
@@ -978,17 +1016,36 @@
         <div class="hero-bg"></div>
         <div class="hero-bg-2"></div>
         <div class="container">
-            <div class="hero-content">
-                <p style="color: #1a1a1a; text-transform: uppercase; font-size: 0.9rem; letter-spacing: 1px; margin-bottom: 1rem;">Hi, I'm</p>
-                <h1>Calida Ashel Mathias</h1>
-                <p>Strategy. Analytics. Insights. Data.</p>
-                <div class="hero-buttons">
-                    <a href="#projects" class="primary-btn">View My Work</a>
-                    <a href="#contact" class="secondary-btn">Get in Touch</a>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; max-width: 1200px; margin: 0 auto;">
+                <!-- Left: Photo -->
+                <div style="text-align: center;">
+                    <div style="width: 400px; height: 400px; background: linear-gradient(135deg, #D4AF37, #E8C547); border-radius: 50%; margin: 0 auto; display: flex; align-items: center; justify-content: center; color: white; font-size: 1rem; overflow: hidden; border: 4px solid #D4AF37; box-shadow: 0 10px 40px rgba(212, 175, 55, 0.2);">
+                        <img id="heroPhoto" src="https://media.licdn.com/dms/image/v2/D4D03AQHvAooIS5jkxQ/profile-displayphoto-shrink_800_800/B4DZgTVFaKGgAg-/0/1752670951750?e=1783555200&v=beta&t=IamUbRVQ5EiAcAL9hqhn-G8mKTDYRCnyTz_beYITEMo" alt="Calida" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+                        <span id="photoPlaceholder" style="text-align: center; display: none;">
+                            <p style="margin: 0; font-size: 3rem;">📸</p>
+                            <p style="margin-top: 0.5rem; font-size: 0.9rem;">Add your photo</p>
+                        </span>
+                    </div>
                 </div>
-                <div class="scroll-indicator">
-                    <p style="margin-bottom: 0.5rem;">Scroll to explore</p>
-                    <span style="font-size: 1.5rem;">↓</span>
+                <!-- Right: Content -->
+                <div class="hero-content" style="text-align: left;">
+                    <p style="color: #1a1a1a; text-transform: uppercase; font-size: 0.9rem; letter-spacing: 1px; margin-bottom: 1rem;">Hi, I'm</p>
+                    <h1 style="text-align: left;">Calida Ashel Mathias</h1>
+                    <p style="text-align: left; color: #1a1a1a; font-size: 1rem; margin: 0.5rem 0 1rem 0;">Strategy. Analytics. Insights. Data.</p>
+                    
+                    <div style="background: #E8F4FF; padding: 1.5rem; border-radius: 0.8rem; margin: 1.5rem 0; border-left: 4px solid #D4AF37;">
+                        <p style="color: #1a1a1a; font-size: 1rem; line-height: 1.6; margin: 0;">Transforming insights into action across healthcare, tech, and beyond. I specialize in data science, product analytics, market research, and strategy that drive business impact.</p>
+                    </div>
+
+                    <div class="hero-buttons" style="justify-content: flex-start; gap: 1rem;">
+                        <a href="https://linkedin.com/in/calidaashel" target="_blank" class="primary-btn" style="background: #D4AF37; color: #1a1a1a;">Connect on LinkedIn</a>
+                        <a href="#contact" class="primary-btn" style="background: #D4AF37; color: #1a1a1a;">Schedule 1:1</a>
+                    </div>
+
+                    <div class="scroll-indicator" style="margin-top: 3rem; text-align: left;">
+                        <p style="margin-bottom: 0.5rem; color: #1a1a1a;">Scroll to know more about me, why you need to hire me</p>
+                        <span style="font-size: 1.5rem;">↓</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -998,7 +1055,7 @@
     <section id="expertise">
         <div class="container">
             <div class="section-header">
-                <h2>My Strengths</h2>
+                <h2>Areas of Expertise: My Strengths</h2>
             </div>
             <div class="cards-grid">
                 <div class="card">
@@ -1058,22 +1115,6 @@
                     <p>I've spent the last few years solving problems with data. At ZS, I ran 60+ physician interviews to understand market dynamics. Built forecasting models—20%+ accuracy improvements. Worked on strategy across $10B+ therapeutic markets.</p>
                     <p>Fuqua taught me that good analytics isn't about having the fanciest models. It's about understanding what decision needs to be made, then building the insight to make it.</p>
                     <p>That's what I do: turn messy problems into clarity. Whether that's strategy, analytics, forecasting, market research, data science—the toolkit changes, the thinking stays the same.</p>
-                    
-                    <div class="education-cards">
-                        <h4 style="color: #1a1a1a; margin-bottom: 1rem; font-weight: 600;">Education</h4>
-                        <div class="edu-card">
-                            <h4>Duke Fuqua</h4>
-                            <div class="edu-degree">Master of Quantitative Management</div>
-                            <div class="edu-focus">Business Analytics, Strategy & Marketing</div>
-                            <div class="edu-date">May 2026</div>
-                        </div>
-                        <div class="edu-card">
-                            <h4>Christ University</h4>
-                            <div class="edu-degree">Triple Major</div>
-                            <div class="edu-focus">Economics, Mathematics, Statistics</div>
-                            <div class="edu-date">Best Undergraduate Researcher Award</div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
@@ -1090,8 +1131,8 @@
                     <div class="timeline-dot"></div>
                     <div class="timeline-card">
                         <div class="timeline-company">ZS Associates</div>
-                        <div class="timeline-role">Strategy & Analytics Manager</div>
-                        <span class="timeline-period">2021 - 2024</span>
+                        <div class="timeline-role">Associate</div>
+                        <span class="timeline-period">2022 - 2025</span>
                     </div>
                 </div>
                 <div class="timeline-item">
@@ -1099,15 +1140,7 @@
                     <div class="timeline-card">
                         <div class="timeline-company">Duke Advanced Degree Consulting</div>
                         <div class="timeline-role">Senior Engagement Manager</div>
-                        <span class="timeline-period">2023 - 2024</span>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-card">
-                        <div class="timeline-company">Duke Fuqua</div>
-                        <div class="timeline-role">Graduate Student & Researcher</div>
-                        <span class="timeline-period">2024 - 2026</span>
+                        <span class="timeline-period">2025 - 2026</span>
                     </div>
                 </div>
             </div>
@@ -1180,32 +1213,79 @@
             </div>
             <div class="skills-container">
                 <div class="skill-group">
-                    <h3>Programming</h3>
-                    <div class="skill-item"><div class="skill-name">Python</div></div>
-                    <div class="skill-item"><div class="skill-name">SQL / Snowflake</div></div>
-                    <div class="skill-item"><div class="skill-name">R</div></div>
-                    <div class="skill-item"><div class="skill-name">JavaScript</div></div>
+                    <h3>Programming & Tools</h3>
+                    <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">SQL / Snowflake</span>
+                        <span class="skill-tag">R</span>
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">Tableau</span>
+                        <span class="skill-tag">Google Analytics</span>
+                        <span class="skill-tag">Excel</span>
+                    </div>
                 </div>
+
                 <div class="skill-group">
                     <h3>Analytics & Strategy</h3>
-                    <div class="skill-item"><div class="skill-name">Conjoint Analysis</div></div>
-                    <div class="skill-item"><div class="skill-name">A/B Testing & Experimentation</div></div>
-                    <div class="skill-item"><div class="skill-name">Market Segmentation</div></div>
-                    <div class="skill-item"><div class="skill-name">Forecasting</div></div>
-                    <div class="skill-item"><div class="skill-name">Pricing Strategy</div></div>
+                    <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+                        <span class="skill-tag">Conjoint Analysis</span>
+                        <span class="skill-tag">A/B Testing</span>
+                        <span class="skill-tag">Market Segmentation</span>
+                        <span class="skill-tag">Forecasting</span>
+                        <span class="skill-tag">Pricing Strategy</span>
+                        <span class="skill-tag">Customer Discovery</span>
+                        <span class="skill-tag">Go-to-Market</span>
+                    </div>
                 </div>
+
                 <div class="skill-group">
                     <h3>Machine Learning & Data Science</h3>
-                    <div class="skill-item"><div class="skill-name">Predictive Modeling</div></div>
-                    <div class="skill-item"><div class="skill-name">Statistical Analysis</div></div>
-                    <div class="skill-item"><div class="skill-name">Time Series Forecasting</div></div>
-                    <div class="skill-item"><div class="skill-name">Market Research</div></div>
+                    <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+                        <span class="skill-tag">Predictive Modeling</span>
+                        <span class="skill-tag">Statistical Analysis</span>
+                        <span class="skill-tag">Time Series Forecasting</span>
+                        <span class="skill-tag">Deep Learning</span>
+                        <span class="skill-tag">Market Research</span>
+                        <span class="skill-tag">KPI Dashboards</span>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
+    <!-- Education Section -->
+    <section id="education">
+        <div class="container">
+            <div class="section-header">
+                <h2>Education</h2>
+            </div>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; max-width: 1000px; margin: 0 auto;">
+                <!-- Duke Fuqua -->
+                <div style="text-align: center; animation: fadeUp 0.6s ease-out 0.1s both;">
+                    <div style="width: 100%; height: 250px; background: #E0E0E0; border-radius: 1rem; margin-bottom: 1.5rem; overflow: hidden; border: 1px solid #E0E0E0;">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Duke_University_Tower.jpg/1200px-Duke_University_Tower.jpg" alt="Duke University" style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                    <h3 style="color: #1a1a1a; font-size: 1.2rem; margin-bottom: 0.5rem;">Duke University</h3>
+                    <p style="color: #D4AF37; font-weight: 600; margin: 0.3rem 0;">Fuqua School of Business</p>
+                    <p style="color: #1a1a1a; font-size: 0.9rem; margin: 0.5rem 0;">Master of Quantitative Management</p>
+                    <p style="color: #1a1a1a; font-size: 0.85rem; margin: 0.3rem 0; line-height: 1.5;">Business Analytics, Marketing and Strategy concentration</p>
+                    <p style="color: #999; font-size: 0.85rem; margin: 0.5rem 0;">Graduated May 2026</p>
+                </div>
+
+                <!-- Christ University -->
+                <div style="text-align: center; animation: fadeUp 0.6s ease-out 0.2s both;">
+                    <div style="width: 100%; height: 250px; background: #E0E0E0; border-radius: 1rem; margin-bottom: 1.5rem; overflow: hidden; border: 1px solid #E0E0E0;">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Christ_University_Bangalore_Campus.jpg/1200px-Christ_University_Bangalore_Campus.jpg" alt="Christ University" style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                    <h3 style="color: #1a1a1a; font-size: 1.2rem; margin-bottom: 0.5rem;">Christ University</h3>
+                    <p style="color: #D4AF37; font-weight: 600; margin: 0.3rem 0;">School of Sciences</p>
+                    <p style="color: #1a1a1a; font-size: 0.9rem; margin: 0.5rem 0;">Bachelor of Science</p>
+                    <p style="color: #1a1a1a; font-size: 0.85rem; margin: 0.3rem 0; line-height: 1.5;">Triple Major in Economics, Mathematics, Statistics</p>
+                    <p style="color: #999; font-size: 0.85rem; margin: 0.5rem 0;">Graduated July 2022</p>
+                </div>
+            </div>
+        </div>
+    </section>
     <section id="contact">
         <div class="container">
             <div class="section-header">
@@ -1270,6 +1350,7 @@
                         <li><a href="#expertise">Work</a></li>
                         <li><a href="#about">About</a></li>
                         <li><a href="#experience">Experience</a></li>
+                        <li><a href="#education">Education</a></li>
                         <li><a href="#contact">Contact</a></li>
                     </ul>
                 </div>
